@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Nitto Mojumder - Digital Marketing & Entrepreneurship Insights</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Read insights from Nitto Mojumder on digital marketing, entrepreneurship, studying in Canada, content creation, and building a billion-dollar business.">
+    <meta name="keywords" content="digital marketing blog, entrepreneurship, study Canada, content creation, business strategy">
+    <meta name="author" content="Nitto Mojumder">
+    <meta property="og:title" content="Blog | Nitto Mojumder">
+    <meta property="og:description" content="Insights on digital marketing, entrepreneurship, and building a billion-dollar business.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Nitto<span>Mojumder</span></a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <section class="blog-header section-padding" style="margin-top: 70px;">
+        <div class="container">
+            <div class="blog-header-content">
+                <h1>Insights & Knowledge Sharing</h1>
+                <p>Sharing my journey, learnings, and insights on digital marketing, entrepreneurship, studying abroad, and building a billion-dollar business.</p>
+                
+                <div class="blog-search">
+                    <input type="text" id="search-input" placeholder="Search blog posts...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-main section-padding">
+        <div class="container">
+            <div class="blog-layout">
+                <!-- Blog Posts -->
+                <div class="blog-posts" id="blog-posts-container">
+                    <!-- Posts will be loaded dynamically -->
+                </div>
+                
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Categories</h3>
+                        <ul class="categories" id="categories-list">
+                            <li><a href="#" data-category="all" class="active">All Posts</a></li>
+                            <li><a href="#" data-category="digital-marketing">Digital Marketing</a></li>
+                            <li><a href="#" data-category="entrepreneurship">Entrepreneurship</a></li>
+                            <li><a href="#" data-category="study-abroad">Study Abroad</a></li>
+                            <li><a href="#" data-category="content-creation">Content Creation</a></li>
+                            <li><a href="#" data-category="personal-growth">Personal Growth</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3>Popular Posts</h3>
+                        <div class="popular-posts" id="popular-posts">
+                            <!-- Popular posts loaded dynamically -->
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3>Subscribe</h3>
+                        <p>Get updates on new posts directly in your inbox.</p>
+                        <form class="subscribe-form" id="subscribe-form">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3>Quote of the Day</h3>
+                        <div class="quote">
+                            <p>"The biggest risk is not taking any risk. In a world that's changing really quickly, the only strategy that is guaranteed to fail is not taking risks."</p>
+                            <span>- Mark Zuckerberg</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">Nitto<span>Mojumder</span></a>
+                    <p>Digital marketing expert, future entrepreneur, and content creator with plans to study in Canada and build a billion-dollar business.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/nitto.mojumder.2024" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/digital-marketing-expert2026/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/nitto.mojumder/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@NittoMojumder" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li>Digital Marketing</li>
+                        <li>Entrepreneurship</li>
+                        <li>Study Abroad</li>
+                        <li>Content Creation</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> dmnitto@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Bangladesh → Canada</li>
+                        <li><i class="fas fa-globe"></i> Digital Marketing Expert</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Nitto Mojumder. All rights reserved. | Designed with vision for a billion-dollar future</p>
+                <p><a href="admin.html" style="color: #ccc; font-size: 0.9rem;">Admin Login</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+<script src="./js/main.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+</html>

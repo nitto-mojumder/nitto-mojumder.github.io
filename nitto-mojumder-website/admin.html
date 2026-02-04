@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Nitto Mojumder</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- Admin Login Screen -->
+    <div id="login-screen" class="admin-login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1><i class="fas fa-lock"></i> Admin Login</h1>
+                <p>Enter credentials to access the admin panel</p>
+            </div>
+            
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="username">
+                        <i class="fas fa-user"></i> Username
+                    </label>
+                    <input type="text" id="username" placeholder="Enter admin username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-key"></i> Password
+                    </label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+            
+            <div class="login-info">
+                <p><strong>Default Credentials:</strong></p>
+                <p>Username: <code>admin</code></p>
+                <p>Password: <code>nitto2023</code></p>
+                <p class="note">You can change these in admin.js after first login</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard (Hidden Initially) -->
+    <div id="admin-dashboard" class="admin-dashboard" style="display: none;">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="container">
+                <div class="admin-header-content">
+                    <div class="admin-brand">
+                        <h1><i class="fas fa-cogs"></i> Nitto Admin</h1>
+                        <p>Personal Branding Website Management</p>
+                    </div>
+                    
+                    <div class="admin-actions">
+                        <span class="admin-welcome">
+                            <i class="fas fa-user-circle"></i> Welcome, <strong>Admin</strong>
+                        </span>
+                        <button id="logout-btn" class="btn btn-secondary">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Admin Navigation -->
+        <nav class="admin-nav">
+            <div class="container">
+                <ul class="admin-nav-links">
+                    <li>
+                        <a href="#dashboard" class="admin-nav-link active" data-section="dashboard">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#posts" class="admin-nav-link" data-section="posts">
+                            <i class="fas fa-newspaper"></i> Blog Posts
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#add-post" class="admin-nav-link" data-section="add-post">
+                            <i class="fas fa-plus-circle"></i> Add New Post
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#analytics" class="admin-nav-link" data-section="analytics">
+                            <i class="fas fa-chart-bar"></i> Analytics
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html" target="_blank" class="admin-nav-link">
+                            <i class="fas fa-external-link-alt"></i> View Website
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Admin Main Content -->
+        <main class="admin-main">
+            <div class="container">
+                <!-- Dashboard Section -->
+                <section id="dashboard-section" class="admin-section active">
+                    <h2 class="admin-section-title">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard Overview
+                    </h2>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon total-posts">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="total-posts">0</h3>
+                                <p>Total Blog Posts</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon total-views">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="total-views">0</h3>
+                                <p>Total Views</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon total-likes">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="total-likes">0</h3>
+                                <p>Total Likes</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon categories">
+                                <i class="fas fa-tags"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="total-categories">0</h3>
+                                <p>Categories</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-content-grid">
+                        <div class="admin-card">
+                            <h3><i class="fas fa-history"></i> Recent Activity</h3>
+                            <div class="activity-list" id="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-info-circle"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>Welcome to Admin Panel</p>
+                                        <small>Just now</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="admin-card">
+                            <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                            <div class="quick-actions">
+                                <button class="action-btn" data-action="add-post">
+                                    <i class="fas fa-plus"></i> Add New Post
+                                </button>
+                                <button class="action-btn" data-action="view-posts">
+                                    <i class="fas fa-list"></i> Manage Posts
+                                </button>
+                                <button class="action-btn" data-action="clear-cache">
+                                    <i class="fas fa-trash"></i> Clear Cache
+                                </button>
+                                <button class="action-btn" data-action="backup-data">
+                                    <i class="fas fa-download"></i> Backup Data
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Blog Posts Management Section -->
+                <section id="posts-section" class="admin-section">
+                    <h2 class="admin-section-title">
+                        <i class="fas fa-newspaper"></i> Manage Blog Posts
+                    </h2>
+                    
+                    <div class="posts-controls">
+                        <div class="search-box">
+                            <input type="text" id="post-search" placeholder="Search posts by title or content...">
+                            <button id="search-post-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        
+                        <select id="category-filter" class="category-filter">
+                            <option value="all">All Categories</option>
+                            <option value="digital-marketing">Digital Marketing</option>
+                            <option value="entrepreneurship">Entrepreneurship</option>
+                            <option value="study-abroad">Study Abroad</option>
+                            <option value="content-creation">Content Creation</option>
+                            <option value="personal-growth">Personal Growth</option>
+                        </select>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="posts-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Views</th>
+                                    <th>Likes</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="posts-table-body">
+                                <!-- Posts will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="table-footer">
+                        <p>Showing <span id="shown-posts">0</span> of <span id="total-posts-count">0</span> posts</p>
+                        <div class="table-actions">
+                            <button id="refresh-posts" class="btn btn-secondary">
+                                <i class="fas fa-sync"></i> Refresh
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Add New Post Section -->
+                <section id="add-post-section" class="admin-section">
+                    <h2 class="admin-section-title">
+                        <i class="fas fa-plus-circle"></i> Add New Blog Post
+                    </h2>
+                    
+                    <form id="add-post-form" class="post-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="post-title">
+                                    <i class="fas fa-heading"></i> Post Title *
+                                </label>
+                                <input type="text" id="post-title" placeholder="Enter post title" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="post-category">
+                                    <i class="fas fa-tag"></i> Category *
+                                </label>
+                                <select id="post-category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="digital-marketing">Digital Marketing</option>
+                                    <option value="entrepreneurship">Entrepreneurship</option>
+                                    <option value="study-abroad">Study Abroad</option>
+                                    <option value="content-creation">Content Creation</option>
+                                    <option value="personal-growth">Personal Growth</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="post-excerpt">
+                                <i class="fas fa-align-left"></i> Excerpt *
+                            </label>
+                            <textarea id="post-excerpt" placeholder="Brief description of the post (shown in listings)" rows="3" required></textarea>
+                            <small>Keep it under 200 characters for best display</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="post-content">
+                                <i class="fas fa-edit"></i> Content *
+                            </label>
+                            <textarea id="post-content" placeholder="Write your blog post content here..." rows="10" required></textarea>
+                            <small>Use HTML tags for formatting (p, h3, ul, li, etc.)</small>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="post-image">
+                                    <i class="fas fa-image"></i> Image URL *
+                                </label>
+                                <input type="text" id="post-image" placeholder="https://example.com/image.jpg" required>
+                                <small>Use high-quality images from <a href="https://unsplash.com" target="_blank">Unsplash</a></small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="post-read-time">
+                                    <i class="fas fa-clock"></i> Read Time
+                                </label>
+                                <input type="text" id="post-read-time" placeholder="e.g., 5 min read" value="5 min read">
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Publish Post
+                            </button>
+                            <button type="button" id="save-draft" class="btn btn-secondary">
+                                <i class="fas fa-save"></i> Save as Draft
+                            </button>
+                            <button type="reset" class="btn btn-outline">
+                                <i class="fas fa-times"></i> Clear Form
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Analytics Section -->
+                <section id="analytics-section" class="admin-section">
+                    <h2 class="admin-section-title">
+                        <i class="fas fa-chart-bar"></i> Website Analytics
+                    </h2>
+                    
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h3><i class="fas fa-chart-pie"></i> Posts by Category</h3>
+                            <div class="chart-container">
+                                <canvas id="category-chart"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="analytics-card">
+                            <h3><i class="fas fa-trophy"></i> Top Performing Posts</h3>
+                            <div class="top-posts-list" id="top-posts-list">
+                                <!-- Top posts will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-card full-width">
+                        <h3><i class="fas fa-chart-line"></i> Site Statistics</h3>
+                        <div class="stats-details">
+                            <div class="stat-detail">
+                                <div class="stat-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4>Most Popular Category</h4>
+                                    <p id="most-popular-category">-</p>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-detail">
+                                <div class="stat-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4>Average Views per Post</h4>
+                                    <p id="avg-views">0</p>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-detail">
+                                <div class="stat-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4>Average Likes per Post</h4>
+                                    <p id="avg-likes">0</p>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-detail">
+                                <div class="stat-icon">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4>Last Post Added</h4>
+                                    <p id="last-post-date">-</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Admin Footer -->
+        <footer class="admin-footer">
+            <div class="container">
+                <div class="admin-footer-content">
+                    <p>Nitto Mojumder Admin Panel &copy; <span id="admin-year"></span> | Version 1.0</p>
+                    <p id="last-saved">
+                        <i class="fas fa-save"></i> Last saved: <span id="last-saved-time">Never</span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+  <script src="./js/main.js"></script>
+</body>
+</html>
